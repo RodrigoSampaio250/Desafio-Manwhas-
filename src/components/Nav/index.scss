@@ -1,0 +1,67 @@
+@use '../../sass/variaveis.scss' as *;
+
+.Nav{
+    background-color: $cor-primaria-site;
+    padding: 15px 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2{
+        color: $cor-primaria-Texto;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+    }
+    h2::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $cor-primaria-Texto;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+    h2:hover::after {
+        transform: scaleX(1);
+    }
+
+    &_pesquisa{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    input{
+        padding: 8px 10px 8px 10px;
+        margin-top: 12px;
+        height: 40px;
+        width: 450px;
+        text-align: left;
+        border-radius: 10px;
+        border: 1px solid $cor-secundaria-site;
+        outline: none;
+    }
+    input:focus {
+        border: 1px solid $cor-primaria-site;
+        box-shadow: 0 0 0 2px $cor-primaria-Texto;
+        outline: none;
+      }
+    &__search-Lupa{
+        position: absolute;
+        left: 172px;
+        transform: translateY(95%);
+    }
+    img{
+        margin-top: 12px;
+        margin-right: -10px;
+        background: $branco;
+        padding: 8px 14px 7px 7px;
+        border-radius: 5px;
+    }
+}
