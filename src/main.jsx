@@ -5,13 +5,17 @@ import './index.scss'
 
 import api from "./services/api";
 import Home from '../src/pages/Home/Home';
-
+import Capitulo from "./pages/Capitulo/Capitulo"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
   },
+  {
+    path: "/capitulo/:manwhaId",
+    element: <Capitulo />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -28,13 +28,27 @@
     
     p {
         margin: 0.25rem 0;
-        color: #333;
+        color: $cor-secundaria-Texto;
         font-size: 0.9rem;
     }
     
     img {
         border-radius: 4px;
         margin-bottom: 0.5rem;
+        height: 12rem;
+        width: 9rem;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 5px;
+        border-color: $cor-secundaria-site;
+        background-color: $cor-botao;
+    }
+    a {
+        text-decoration: none;
+        color: $cor-secundaria-Texto;
     }
 
     @media screen and (max-width: 1026px){     
@@ -49,10 +63,11 @@
             width: 125px;
         }
         img{
-            width: 95px;
+            width: 5.75rem;
+            height: 8rem;
         }
         h3{
-            font-size: 0.5rem;
+            font-size: 0.75rem;
         }
         p{
             font-size: 0.5rem;

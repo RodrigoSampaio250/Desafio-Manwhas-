@@ -24,7 +24,7 @@ const ManwhaCard = () => {
   if (loading) {
     return <p>Carregando manwhas...</p>;
   }
-  console.log("Exemplo de manwha:", manwhas[0]);
+//   console.log("Exemplo de manwha:", manwhas[0]);
   return (
     <div className="ManwhaCard">
       {manwhas.map((m) => (
@@ -34,8 +34,15 @@ const ManwhaCard = () => {
             <h3>{m.manwha_name}</h3>
 
             <p><strong>Capítulos:</strong> {m.last_chapter_number ?? 'Não informado'}</p>
-            
+
             <p><strong>Lançado em:</strong> Não disponível</p>
+
+            <button>
+                <Link to={`/capitulo/${m.manwha_id}`}>
+                    <h3>Ler Capítulos</h3>
+                </Link>
+            </button>
+
         </div>
         ))}     
 
