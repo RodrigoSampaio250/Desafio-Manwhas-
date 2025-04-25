@@ -1,7 +1,7 @@
 @use '../../sass/variaveis.scss' as *;
 
 .Nav{
-    background-color: $cor-primaria-site;
+    background-color: $cor-terciaria-site;
     padding: 15px 100px;
     width: 100%;
     display: flex;
@@ -29,12 +29,14 @@
     }
     h2:hover::after {
         transform: scaleX(1);
+        font-size: 1.2rem;
     }
 
     &_pesquisa{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 10px;
     }
 
     input{
@@ -63,5 +65,37 @@
         background: $branco;
         padding: 8px 14px 7px 7px;
         border-radius: 5px;
+    }
+
+    @media screen and (max-width: 1026px){     
+        input{
+            width: 360px;
+        }
+    }
+
+    @media screen and (max-width: 376px){     
+        padding: 8px 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        input{
+            width: 150px;
+            padding: 3px 4px 3px 10px;
+            margin-top: 10px;
+            height: 25px;
+        }
+        img{
+            margin-top: 10px;
+            margin-right: -9px;
+            padding: 4px 12px 4px 3px;
+            border-radius: 5px;
+            width: 28px;
+        }
+
+        h2{
+            font-size: 0.75rem;
+        }
     }
 }
