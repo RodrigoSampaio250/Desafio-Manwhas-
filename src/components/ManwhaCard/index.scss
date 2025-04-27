@@ -45,12 +45,19 @@
         border-radius: 5px;
         border-color: $cor-secundaria-site;
         background-color: $cor-botao;
+        transition: background 0.3s;
+    }
+    button:hover {
+        background-color: $cor-secundaria-site;
     }
     a {
         text-decoration: none;
         color: $cor-secundaria-Texto;
+        transition: background 0.3s;
     }
-
+    a:hover {
+        color: $branco;
+    }
     @media screen and (max-width: 1026px){     
         padding-left: 2.5rem;
     }

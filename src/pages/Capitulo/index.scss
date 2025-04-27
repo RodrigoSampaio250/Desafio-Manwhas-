@@ -1,0 +1,143 @@
+@use '../../sass/variaveis.scss' as *;
+
+.Manwha{
+    display: flex;
+    flex-direction: column;
+    background-color: $cor-primaria-site;
+
+    &_info{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin: 1rem 8rem;
+        border: 1px solid $cor-secundaria-site;
+        background: linear-gradient(to bottom, $cor-primaria-card, $cor-secundaria-card);
+
+        &_img{
+            display: flex;
+            align-items: center;
+        justify-content: center;
+        border-right: 2.5px solid $cor-terciaria-site;
+        }
+        img{
+            width: 90%;
+            margin: 1rem 0px;
+            border: 0.5px solid $cor-secundaria-site;
+        }
+    
+        &_descricao{
+            margin: 1.5rem 3.75rem;
+            
+            h1{
+                padding-bottom: 2.5rem;
+            }
+            &_sinopse {
+                margin-bottom: 1.5rem; /* Dá espaço embaixo da sinopse */
+                text-align: justify;   /* Justifica o texto */
+                max-width: 800px;      /* Limita largura pra não ficar linha infinita */
+            }
+
+              &_genero {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem; /* Espaço entre autor e gêneros */
+                font-size: 1.1rem;
+              }
+              &_autor {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem; /* Espaço entre autor e gêneros */
+                font-size: 1.1rem;
+              }
+              &_cap {
+                margin-top: 2rem; /* Dá um espaço pra separar */
+                font-weight: bold;
+                font-size: 1.2rem;
+              }
+              
+        }
+    }
+
+    &_capitulo{
+        margin: 0.5rem 7.75rem;
+        margin-bottom: 3rem;
+        ul{
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 0.5rem; 
+        }
+        li{
+            // margin: 0;
+        }
+
+        button {
+            border-color: $cor-secundaria-site;
+            background-color: $cor-botao;
+            color: $cor-secundaria-Texto;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem 0;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 152px;
+            height: 50px;
+        }
+        button:hover {
+            background-color: $cor-secundaria-site;
+            color: $branco;
+        }
+    }
+
+    @media screen and (max-width: 1026px){     
+        &_info{
+            &_descricao{
+                &_sinopse{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 7;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 100%;
+                }
+            }
+        }
+        &_capitulo{
+            button {
+                width: 148px;
+                height: 45px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 376px){     
+        &_info{
+            grid-template-columns: none;
+            grid-template-rows: 1fr 2fr;
+            margin: 1rem;
+            height: 920px;
+
+                &_img{
+                    border-right:none;
+                    border-bottom: 2.5px solid #252423;
+                }
+                &_descricao{
+                    margin: 1.5rem 2.75rem;
+
+                    h1{
+                        font-size: 1.5rem;
+                    }
+                }
+        }
+        &_capitulo{
+            margin: 0.5rem 1.75rem;
+            
+            button{
+                width: 155px;
+                height: 50px;
+            }
+        }
+    }
+}
