@@ -65,13 +65,11 @@ const Capitulo = () => {
           </div>
 
           <div className='Manwha_capitulo'>
-            <ul>
+            
                 {Array.from({ length: manwha?.last_chapter_number || 0 }, (_, i) => (
-                <li key={manwha.last_chapter_number - i}>
                   <button>Capítulo {manwha.last_chapter_number - i}</button>
-                </li>
                 ))}
-            </ul>
+            
           </div>
       </div>
 

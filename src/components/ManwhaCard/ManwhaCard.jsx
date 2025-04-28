@@ -7,19 +7,35 @@ const ManwhaCard = ({ searchTerm }) => {
   const [manwhas, setManwhas] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch('https://manwhareader.christopherfrige.com/api/v1/manwhas/?page=1&per_page=1000')
-      .then(res => res.json())
-      .then(data => {
-        // console.log("Resposta da API:", data); // teste para verificar a api
-        setManwhas(data.records);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Erro ao carregar manwhas:", err);
-        setLoading(false);
-      });
-  }, []);
+//   useEffect(() => {
+//     fetch('https://manwhareader.christopherfrige.com/api/v1/manwhas/?page=1&per_page=1000')
+//       .then(res => res.json())
+//       .then(data => {
+//         // console.log("Resposta da API:", data); // teste para verificar a api
+//         setManwhas(data.records);
+//         setLoading(false);
+//       })
+//       .catch(err => {
+//         console.error("Erro ao carregar manwhas:", err);
+//         setLoading(false);
+//       });
+//   }, []);
+
+    useEffect(() => {
+        const fetchManwhas = async () => {
+        try {
+            const response = await fetch(`https://manwhareader.christopherfrige.com/api/v1/manwhas/?page=1&per_page=1000&search=${searchTerm}`);
+            const data = await response.json();
+            setManwhas(data.records);
+            setLoading(false);
+        } catch (error) {
+            console.error("Erro ao buscar manwhas:", error);
+            setLoading(false);
+        }
+        };
+    
+        fetchManwhas();
+    }, [searchTerm]);
 
   if (loading) {
     return <p>Carregando manwhas...</p>;

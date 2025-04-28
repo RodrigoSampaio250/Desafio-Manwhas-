@@ -60,16 +60,10 @@
     &_capitulo{ 
         margin: 0.5rem 7.75rem;
         margin-bottom: 3rem;
-        ul{
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 0.5rem; 
-        }
-        li{
-            // margin: 0;
-        }
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
 
         button {
             border-color: $cor-secundaria-site;
@@ -82,7 +76,7 @@
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.3s;
-            width: 152px;
+            width: 10.5%;
             height: 50px;
         }
         button:hover {
