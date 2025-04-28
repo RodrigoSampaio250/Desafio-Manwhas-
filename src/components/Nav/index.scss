@@ -65,6 +65,10 @@
         background: $branco;
         padding: 8px 14px 7px 7px;
         border-radius: 5px;
+        cursor: pointer;
+    }
+    img:hover{
+        background-color: $cor-primaria-Texto;
     }
 
     @media screen and (max-width: 1026px){     

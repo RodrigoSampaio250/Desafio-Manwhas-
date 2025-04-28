@@ -3,7 +3,7 @@ import './index.scss';
 
 import { Link } from 'react-router-dom';
 
-const ManwhaCard = () => {
+const ManwhaCard = ({ searchTerm }) => {
   const [manwhas, setManwhas] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,10 +24,16 @@ const ManwhaCard = () => {
   if (loading) {
     return <p>Carregando manwhas...</p>;
   }
+
+  const filteredManwhas = manwhas.filter(m =>
+    m.manwha_name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  
 //   console.log("Exemplo de manwha:", manwhas[0]);
+
   return (
     <div className="ManwhaCard">
-      {manwhas.map((m) => (
+      {filteredManwhas.map((m) => (
         <div className="ManwhaCard_card" key={m.manwha_id}>
             <img src={m.thumbnail} alt={m.manwha_name} width="150" />
 

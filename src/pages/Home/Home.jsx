@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './index.scss';
 
@@ -7,12 +8,19 @@ import Nav from '../../components/Nav/Nav';
 import ManwhaCard from '../../components/ManwhaCard/ManwhaCard';
 
 const Home = () => {
-  return (
-    <div>
-        <Nav/>
-        <ManwhaCard/>
-    </div>
-  )
+    
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearchChange = (value) => {
+        setSearchTerm(value);
+    };
+
+    return (
+        <div className='Home'>
+        <Nav onSearchChange={handleSearchChange} />
+        <ManwhaCard searchTerm={searchTerm} />
+        </div>
+    )
 }
 
 export default Home
