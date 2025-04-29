@@ -68,7 +68,7 @@ const Capitulo = () => {
       <div className="Manwha">
       
       <div className='Manwha_Nome'>
-        <h1>{manwha?.manwha_name ?? "Sem nome disponível"}</h1>
+      <h1>{manwha.name ?? "Sem nome"}</h1>
       </div>
 
           <div className='Manwha_info'>
