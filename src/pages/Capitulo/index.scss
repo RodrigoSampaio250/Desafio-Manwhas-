@@ -41,6 +41,8 @@
         &_descricao{
             margin: 1.5rem 3.75rem;
             color: $branco;
+            display: grid;
+            grid-template-rows: 1fr 1fr 2fr 2fr 1fr;
             &_sinopse {
                 margin-bottom: 1.5rem; /* Dá espaço embaixo da sinopse */
                 text-align: justify;   /* Justifica o texto */

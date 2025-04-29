@@ -19,19 +19,36 @@ const Capitulo = () => {
   // console.log(Object.keys(manwha));       // importante para ver os títulos do json/api
 
 
+  // useEffect(() => {
+  //   fetch("https://manwhareader.christopherfrige.com/api/v1/manwhas/?page=1&per_page=1000")
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const m = data.records.find(m => m.manwha_id === Number(manwhaId));
+  //       setManwha(m);
+  //       setLoading(false);
+  //     })
+  //     .catch(err => {
+  //       console.error("Erro ao carregar manwha:", err);
+  //       setLoading(false);
+  //     });
+  // }, [manwhaId]);
+
   useEffect(() => {
-    fetch("https://manwhareader.christopherfrige.com/api/v1/manwhas/?page=1&per_page=1000")
-      .then(res => res.json())
-      .then(data => {
-        const m = data.records.find(m => m.manwha_id === Number(manwhaId));
-        setManwha(m);
+    const fetchManwha = async () => {
+      try {
+        const response = await fetch(`https://manwhareader.christopherfrige.com/api/v1/manwhas/${manwhaId}`);
+        const data = await response.json();
+        setManwha(data); // Aqui você armazena os dados no estado
         setLoading(false);
-      })
-      .catch(err => {
+      } catch (err) {
         console.error("Erro ao carregar manwha:", err);
         setLoading(false);
-      });
+      }
+    };
+  
+    fetchManwha();
   }, [manwhaId]);
+  
 
 
   if (loading) {
@@ -42,6 +59,8 @@ const Capitulo = () => {
     return <h1>Manwha não encontrado.</h1>;
   }
   
+  // console.log(data);
+
   return (
     <div>
       <Nav />
@@ -61,36 +80,38 @@ const Capitulo = () => {
               </div>
               <div className='Manwha_info_descricao'>
 
-                <p className='Manwha_info_descricao_sinopse'><strong>Sinopse: </strong> {manwha?.synopsis ?? "Sem sinopse disponível"}</p>
+                <p><strong>Autor:</strong> {manwha.authors?.[0]?.name ?? "Desconhecido"}</p>
 
-                <p className='Manwha_info_descricao_genero'><strong>Gêneros:</strong> {manwha?.genres?.join(", ") ?? "Não informado"}</p>
+                <p><strong>Artista:</strong> {manwha.artists?.[0]?.name ?? "Desconhecido"}</p>
 
-                <p className='Manwha_info_descricao_autor'><strong>Autor:</strong> {manwha?.author ?? "Não informado"}</p>
-                
-                <p className='Manwha_info_descricao_cap'><strong>Último capítulo:</strong> {manwha?.last_chapter_number ?? "Sem informação"}</p>
-              
+                <p><strong>Gêneros:</strong> {manwha.genres?.map(g => g.name).join(", ") ?? "Não informado"}</p>
+
+                <p><strong>Outros nomes:</strong> {manwha.alternative_names?.map(n => n.name).join("Não possue")}</p>
+
+                <p><strong>Lançado em:</strong> {manwha.release ?? "Sem informação"}</p>
               </div>
           </div>
 
           <div className='Manwha_capitulo'>
             
-                {Array.from({ length: manwha?.last_chapter_number || 0 }, (_, i) => (
-                  <div className='item'>
-                    <div className='item_botao'>
-                      <button>Capítulo {manwha.last_chapter_number - i}</button>
-                    </div>
-                    
-                      <p>
-                         <FontAwesomeIcon icon="fa-regular fa-clock" />
-                          {" "} {manwha.last_chapter_uploaded_at ? new Date(manwha.last_chapter_uploaded_at).toLocaleString("pt-BR", {                        
-                            dateStyle: "short",
-                            timeStyle: "short",
-                          })
-                          : "Não informado"}
-                      </p>
-                  </div>
-                ))}
-      
+          {manwha?.chapters?.map((cap) => (
+            <div key={cap.id} className="item">
+              <div className="item_botao">
+                <button>Capítulo {cap.chapter_number}</button>
+              </div>
+
+              <p>
+                <FontAwesomeIcon icon="fa-regular fa-clock" />
+                {" "}
+                {cap.updated_at
+                  ? new Date(cap.updated_at).toLocaleString("pt-BR", {
+                      dateStyle: "short",
+                      timeStyle: "short",
+                    })
+                  : "Não informado"}
+              </p>
+            </div>
+          ))}
           </div>
       </div>
 

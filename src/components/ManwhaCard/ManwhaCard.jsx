@@ -45,7 +45,7 @@ const ManwhaCard = ({ searchTerm }) => {
     }, [searchTerm]);
 
   if (loading) {
-    return <p>Carregando manwhas...</p>;
+    return <p style={{ color: "white", textAlign: "center" }}>Carregando manwhas...</p>;
   }
   if (!loading && manwhas.length === 0) {
     return <p style={{ color: "white", textAlign: "center" }}>Nenhum manhwa encontrado.</p>;
