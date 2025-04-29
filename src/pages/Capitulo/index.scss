@@ -5,31 +5,42 @@
     flex-direction: column;
     background-color: $cor-primaria-site;
 
+    &_Nome{
+        background-color: $cor-terciaria-site;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 16px;
+
+        h1{
+            color: $branco;
+            text-align: center;
+        }
+    }
+
     &_info{
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr 3fr;
         margin: 1rem 8rem;
-        border: 1px solid $cor-secundaria-site;
-        background: linear-gradient(to bottom, $cor-primaria-card, $cor-secundaria-card);
+        // border: 1px solid $cor-secundaria-site;
+        background: $cor-terciaria-site;
 
         &_img{
             display: flex;
             align-items: center;
-        justify-content: center;
-        border-right: 2.5px solid $cor-terciaria-site;
+            justify-content: center;
+            margin: 10px;
         }
         img{
-            width: 90%;
-            margin: 1rem 0px;
-            border: 0.5px solid $cor-secundaria-site;
+            width: 100%;
         }
-    
+        &_espaco{
+            background-color: $cor-primaria-site;    
+        }
+
         &_descricao{
             margin: 1.5rem 3.75rem;
-            
-            h1{
-                padding-bottom: 2.5rem;
-            }
+            color: $branco;
             &_sinopse {
                 margin-bottom: 1.5rem; /* Dá espaço embaixo da sinopse */
                 text-align: justify;   /* Justifica o texto */
@@ -60,28 +71,43 @@
     &_capitulo{ 
         margin: 0.5rem 7.75rem;
         margin-bottom: 3rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 0.5rem;
+
+    .item{
+        background-color: $cor-terciaria-site;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 1rem;
+
+        &_botao{
+            width: 33%;
+        }
+    }
 
         button {
             border-color: $cor-secundaria-site;
             background-color: $cor-botao;
             color: $cor-secundaria-Texto;
             border: none;
-            padding: 0.5rem 1rem;
-            margin: 0.3rem 0;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 0.25rem 1.75rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
             cursor: pointer;
             transition: background 0.3s;
-            width: 10.5%;
-            height: 50px;
         }
         button:hover {
             background-color: $cor-secundaria-site;
             color: $branco;
+        }
+        p{
+            font-size: 0.75rem;
+            color: $branco;
+            text-align: end;
         }
     }
 
@@ -99,14 +125,20 @@
             }
         }
         &_capitulo{
-            button {
-                width: 148px;
-                height: 45px;
-            }
+            // button {
+            //     width: 148px;
+            //     height: 45px;
+            // }
         }
     }
 
     @media screen and (max-width: 376px){     
+       &_Nome{
+            h1{
+                font-size: 1.5rem;
+            }
+       }
+       
         &_info{
             grid-template-columns: none;
             grid-template-rows: 1fr 2fr;
@@ -119,19 +151,15 @@
                 }
                 &_descricao{
                     margin: 1.5rem 2.75rem;
-
-                    h1{
-                        font-size: 1.5rem;
-                    }
                 }
         }
         &_capitulo{
             margin: 0.5rem 1.75rem;
             
-            button{
-                width: 155px;
-                height: 50px;
-            }
+            // button{
+            //     width: 155px;
+            //     height: 50px;
+            // }
         }
     }
 }

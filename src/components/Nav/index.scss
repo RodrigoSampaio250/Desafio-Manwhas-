@@ -2,7 +2,7 @@
 
 .Nav{
     background-color: $cor-terciaria-site;
-    padding: 15px 100px;
+    padding: 15px 4.5rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -37,6 +37,18 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
+
+        &_busca{
+            margin-top: 12px;
+            margin-left: -10px;
+            background: $cor-secundaria-site;
+            padding: 8px 14px 10px 10px;
+            border-radius: 0px 5px 5px 0px;
+            cursor: pointer;
+        }
+        &_busca:hover{
+            background-color: $cor-primaria-Texto;
+        }
     }
 
     input{
@@ -59,17 +71,17 @@
         left: 172px;
         transform: translateY(95%);
     }
-    img{
-        margin-top: 12px;
-        margin-right: -10px;
-        background: $branco;
-        padding: 8px 14px 7px 7px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    img:hover{
-        background-color: $cor-primaria-Texto;
-    }
+    // img{
+    //     margin-top: 12px;
+    //     margin-right: -10px;
+    //     background: $branco;
+    //     padding: 8px 14px 7px 7px;
+    //     border-radius: 5px;
+    //     cursor: pointer;
+    // }
+    // img:hover{
+    //     background-color: $cor-primaria-Texto;
+    // }
 
     @media screen and (max-width: 1026px){     
         input{
@@ -90,15 +102,14 @@
             margin-top: 10px;
             height: 25px;
         }
-        img{
+        &_pesquisa_busca{
             margin-top: 10px;
-            margin-right: -9px;
-            padding: 4px 12px 4px 3px;
+            padding: 4px 45px 6px 6px;
             border-radius: 5px;
             width: 28px;
         }
 
-        h2{
+        h2,h3{
             font-size: 0.75rem;
         }
     }

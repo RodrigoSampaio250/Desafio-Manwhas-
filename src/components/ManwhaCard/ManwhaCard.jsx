@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+library.add(faClock);
+
+
 import { Link } from 'react-router-dom';
 
 const ManwhaCard = ({ searchTerm }) => {
@@ -40,12 +47,16 @@ const ManwhaCard = ({ searchTerm }) => {
   if (loading) {
     return <p>Carregando manwhas...</p>;
   }
+  if (!loading && manwhas.length === 0) {
+    return <p style={{ color: "white", textAlign: "center" }}>Nenhum manhwa encontrado.</p>;
+  }
+  
 
   const filteredManwhas = manwhas.filter(m =>
     m.manwha_name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
-//   console.log("Exemplo de manwha:", manwhas[0]);
+  console.log("Exemplo de manwha:", manwhas[0]);
 
   return (
     <div className="ManwhaCard">
@@ -55,16 +66,20 @@ const ManwhaCard = ({ searchTerm }) => {
 
             <h3>{m.manwha_name}</h3>
 
-            <p><strong>Capítulos:</strong> {m.last_chapter_number ?? 'Não informado'}</p>
-
-            <p><strong>Lançado em:</strong> Não disponível</p>
-
             <button>
                 <Link to={`/capitulo/${m.manwha_id}`}>
-                    <h3>Ler Capítulos</h3>
+                    <h2>Capítulo {m.last_chapter_number ?? 'Não informado'}</h2>
                 </Link>
             </button>
 
+            <p>
+            <FontAwesomeIcon icon="fa-regular fa-clock" />
+            {" "} {m.last_chapter_uploaded_at ? new Date(m.last_chapter_uploaded_at).toLocaleString("pt-BR", {                        
+                    dateStyle: "short",
+                    timeStyle: "short",
+                })
+                    : "Não informado"}
+            </p>
         </div>
         ))}     
 

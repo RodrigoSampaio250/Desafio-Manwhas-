@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './index.scss';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import api from "../../services/api";
 import Nav from '../../components/Nav/Nav';
 
@@ -31,11 +35,11 @@ const Capitulo = () => {
 
 
   if (loading) {
-    return <p>Carregando...</p>;
-  }
+    return <h1>Carregando...</h1>;
+  }  
   console.log("manwha recebido:", manwha);
   if (!manwha) {
-    return <p>Manwha não encontrado.</p>;
+    return <h1>Manwha não encontrado.</h1>;
   }
   
   return (
@@ -44,14 +48,18 @@ const Capitulo = () => {
 
       <div className="Manwha">
       
+      <div className='Manwha_Nome'>
+        <h1>{manwha?.manwha_name ?? "Sem nome disponível"}</h1>
+      </div>
+
           <div className='Manwha_info'>
               <div className='Manwha_info_img'>
                 <img src={manwha?.thumbnail} alt={manwha?.manwha_name} />
               </div>
+              <div className='Manwha_info_espaco'>
 
+              </div>
               <div className='Manwha_info_descricao'>
-                
-                <h1>{manwha?.manwha_name ?? "Sem nome disponível"}</h1>
 
                 <p className='Manwha_info_descricao_sinopse'><strong>Sinopse: </strong> {manwha?.synopsis ?? "Sem sinopse disponível"}</p>
 
@@ -67,9 +75,22 @@ const Capitulo = () => {
           <div className='Manwha_capitulo'>
             
                 {Array.from({ length: manwha?.last_chapter_number || 0 }, (_, i) => (
-                  <button>Capítulo {manwha.last_chapter_number - i}</button>
+                  <div className='item'>
+                    <div className='item_botao'>
+                      <button>Capítulo {manwha.last_chapter_number - i}</button>
+                    </div>
+                    
+                      <p>
+                         <FontAwesomeIcon icon="fa-regular fa-clock" />
+                          {" "} {manwha.last_chapter_uploaded_at ? new Date(manwha.last_chapter_uploaded_at).toLocaleString("pt-BR", {                        
+                            dateStyle: "short",
+                            timeStyle: "short",
+                          })
+                          : "Não informado"}
+                      </p>
+                  </div>
                 ))}
-            
+      
           </div>
       </div>
 

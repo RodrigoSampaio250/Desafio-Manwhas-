@@ -4,16 +4,14 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 4.5rem;
+    padding: 1.5rem 4.5rem;
     background-color: $cor-primaria-site;
     
     &_card {
-        border: 1px solid $cor-secundaria-site;
-        padding: 1rem;
-        width: 180px;
-        background: linear-gradient(to bottom, $cor-primaria-card, $cor-secundaria-card);
+        // border: 1px solid $cor-secundaria-site;
+        // padding: 1rem;
+        width: 15%;
+        // background: linear-gradient(to bottom, $cor-primaria-card, $cor-secundaria-card);
         border-radius: 8px;
       }
     h3 {
@@ -24,48 +22,55 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+        color: $branco;
+    }
+    h2 {
+        font-size: 0.75rem;
     }
     
     p {
-        margin: 0.25rem 0;
-        color: $cor-secundaria-Texto;
+        margin-top: 0.25rem;
+        color: $branco;
         font-size: 0.9rem;
     }
     
     img {
         border-radius: 4px;
         margin-bottom: 0.5rem;
-        height: 12rem;
-        width: 9rem;
+        height: 18rem;
+        width: 100%;
+        object-fit: cover;
     }
 
     button {
-        width: 100%;
-        margin-top: 10px;
+        width: 50%;
+        padding: 0.5rem;
         border-radius: 5px;
         border-color: $cor-secundaria-site;
-        background-color: $cor-botao;
+        background-color: $cor-secundaria-site;
         transition: background 0.3s;
     }
     button:hover {
-        background-color: $cor-secundaria-site;
+        background-color: $cor-botao;
     }
-    
+
     a {
         text-decoration: none;
         color: $cor-secundaria-Texto;
         transition: background 0.3s;
     }
-    a:hover {
-        color: $branco;
-    }
+    // a:hover {
+    //     color: $branco;
+    // }
     @media screen and (max-width: 1026px){     
         padding-left: 2.5rem;
+        padding-right: 2.5rem;
     }
 
     @media screen and (max-width: 376px){     
-        padding-top: 1rem;
-        padding-left: 3.5rem;
+        padding: 1rem 2.5rem;
+        justify-content: end;
+
         
         &_card{
             width: 125px;
@@ -74,10 +79,7 @@
             width: 5.75rem;
             height: 8rem;
         }
-        h3{
-            font-size: 0.75rem;
-        }
-        p{
+        h2,h3,p{
             font-size: 0.5rem;
         }
     }

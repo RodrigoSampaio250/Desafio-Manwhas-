@@ -24,12 +24,15 @@ const Nav = ({ onSearchChange }) => {
         </h2></Link>
 
         <div className='Nav_pesquisa'>
-        <img src={lupa} alt="search logo" className="nav__search-Lupa" onClick={() => inputRef.current?.focus()}/>
+        {/* <img src={lupa} alt="search logo" className="nav__search-Lupa" onClick={() => inputRef.current?.focus()}/> */}
 
         {/* <input type="text" placeholder="Search" onChange={(e) => setSearchTerm(e.target.value)}/>
         </div> */}
 
-        <input ref={inputRef} type="text" placeholder="Search" onChange={handleInputChange}/>
+            <input ref={inputRef} type="text" placeholder="Search" onChange={handleInputChange}/>
+            <div className='Nav_pesquisa_busca' onClick={() => inputRef.current?.focus()}>
+                <h3>Buscar</h3>
+            </div>
         </div>
     </div>
   )
