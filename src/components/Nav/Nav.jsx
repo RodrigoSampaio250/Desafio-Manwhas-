@@ -23,6 +23,11 @@ const Nav = ({ onSearchChange }) => {
         ManwhasBrasil
         </h2></Link>
 
+        <ul className='Nav_menu'>
+            <li>Início</li>
+            <li>Gerenciar Manwhas</li>
+        </ul>
+
         <div className='Nav_pesquisa'>
         {/* <img src={lupa} alt="search logo" className="nav__search-Lupa" onClick={() => inputRef.current?.focus()}/> */}
 

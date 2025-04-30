@@ -2,4 +2,19 @@
 
 .Home{
     background-color: $cor-primaria-site;
+
+    &_titulo{
+        display: flex;
+        justify-content: start;
+        padding: 1rem 0rem 1rem 10px;
+        margin: 2.5rem 4rem -1rem 4rem;
+        background-color: $cor-terciaria-site;
+        color: $branco;
+        font-size: 1.25rem;
+    }
+    @media screen and (max-width: 376px){     
+        h3{
+            font-size: 1.25rem;
+        }
+    }
 }
