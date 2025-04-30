@@ -52,11 +52,11 @@ const Capitulo = () => {
 
 
   if (loading) {
-    return <h1>Carregando...</h1>;
+    return <h1 style={{ color: "white", textAlign: "center", padding: "10px", fontSize: "2rem" }}>Carregando...</h1>;
   }  
-  console.log("manwha recebido:", manwha);
+  // console.log("manwha recebido:", manwha);
   if (!manwha) {
-    return <h1>Manwha não encontrado.</h1>;
+    return <h1 style={{ color: "white", textAlign: "center", padding: "10px", fontSize: "2rem" }}>Manwha não encontrado.</h1>;
   }
   
   // console.log(data);
@@ -86,7 +86,7 @@ const Capitulo = () => {
 
                 <p><strong>Gêneros:</strong> {manwha.genres?.map(g => g.name).join(", ") ?? "Não informado"}</p>
 
-                <p><strong>Outros nomes:</strong> {manwha.alternative_names?.map(n => n.name).join("Não possue")}</p>
+                <p><strong>Outros nomes:</strong> {manwha.alternative_names?.map(n => n.name).join(", ") ?? "Não informado"}</p>
 
                 <p><strong>Lançado em:</strong> {manwha.release ?? "Sem informação"}</p>
               </div>

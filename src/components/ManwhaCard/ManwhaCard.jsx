@@ -45,10 +45,10 @@ const ManwhaCard = ({ searchTerm }) => {
     }, [searchTerm]);
 
   if (loading) {
-    return <p style={{ color: "white", textAlign: "center" }}>Carregando manwhas...</p>;
+    return <p style={{ color: "white", textAlign: "center", padding: "10px", fontSize: "2rem" }}>Carregando manwhas...</p>;
   }
   if (!loading && manwhas.length === 0) {
-    return <p style={{ color: "white", textAlign: "center" }}>Nenhum manhwa encontrado.</p>;
+    return <p style={{ color: "white", textAlign: "center", padding: "10px", fontSize: "2rem" }}>Nenhum manhwa encontrado.</p>;
   }
   
 
@@ -56,7 +56,7 @@ const ManwhaCard = ({ searchTerm }) => {
     m.manwha_name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
-  console.log("Exemplo de manwha:", manwhas[0]);
+  // console.log("Exemplo de manwha:", manwhas[0]);
 
   return (
     <div className="ManwhaCard">
