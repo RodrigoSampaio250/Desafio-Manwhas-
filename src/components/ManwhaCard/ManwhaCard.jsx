@@ -45,10 +45,10 @@ const ManwhaCard = ({ searchTerm }) => {
     }, [searchTerm]);
 
   if (loading) {
-    return <p style={{ color: "white", textAlign: "center", padding: "10px", fontSize: "2rem" }}>Carregando manwhas...</p>;
+    return <p style={{ color: "white", textAlign: "center", padding: "10px", fontSize: "2rem", marginTop: "20px"}}>Carregando manwhas...</p>;
   }
   if (!loading && manwhas.length === 0) {
-    return <p style={{ color: "white", textAlign: "center", padding: "10px", fontSize: "2rem" }}>Nenhum manhwa encontrado.</p>;
+    return <p style={{ color: "white", textAlign: "center", padding: "10px", fontSize: "2rem", marginTop: "20px" }}>Nenhum manhwa encontrado.</p>;
   }
   
 

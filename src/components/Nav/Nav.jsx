@@ -24,7 +24,9 @@ const Nav = ({ onSearchChange }) => {
         </h2></Link>
 
         <ul className='Nav_menu'>
-            <li>Início</li>
+            <Link to={"/"}><li>
+                Início
+            </li></Link>
             <li>Gerenciar Manwhas</li>
         </ul>
 

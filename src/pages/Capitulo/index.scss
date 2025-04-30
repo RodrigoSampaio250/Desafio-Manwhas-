@@ -11,6 +11,8 @@
         justify-content: center;
         align-items: center;
         margin-top: 16px;
+        margin-left: 8rem;
+        margin-right: 8rem;
         padding: 10px 0px;
 
         h1{
@@ -139,6 +141,8 @@
 
     @media screen and (max-width: 376px){     
        &_Nome{
+        margin-left: 0rem;
+        margin-right: 0rem;
             h1{
                 font-size: 1.5rem;
             }
